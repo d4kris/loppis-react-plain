@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marknad</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Visa meny</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Marknad</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><button class="navbar-btn btn btn-default">Ny säljare</button></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meny <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Synka köp</a></li>
+            <li><a href="#">Räkna ihop</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  <div class="item row">
+    <form role="form" class="">
+      <div class="col-xs-6">
+        <input type="number" name="seller" id="seller" placeholder="Sälj nr" class="form-control" />
+      </div>
+      <div class="col-xs-6">
+        <input type="number" step="5" placeholder="Pris" class="form-control" />
+      </div>
+      <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> </button>
+    </form>
+  </div>
+  <p class="text-muted">
+  <div class="row">
+    <div class="seller col-xs-6">49</div><div class="price col-xs-6">15</div>
+  </div>
+  <div class="row">
+    <span class="seller col-xs-6">6</span><span class="price col-xs-6">5</span>
+  </div>
+  </p>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+</body>
+</html>
