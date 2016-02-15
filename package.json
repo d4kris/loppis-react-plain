@@ -1,0 +1,26 @@
+{
+  "name": "loppis-plain",
+  "version": "1.0.0",
+  "description": "Loppis app in react without any redux",
+  "main": "index.js",
+  "babel": {
+    "presets": ["react"],
+    "only": [
+      "jsx/**/*.jsx"
+    ]
+  },
+  "scripts": {
+    "start": "babel -x .jsx --watch jsx -d js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "loppis-react-plain"
+  },
+  "keywords": [
+    "loppis",
+    "react"
+  ],
+  "author": "d4kris",
+  "license": "ISC"
+}
