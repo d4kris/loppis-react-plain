@@ -1,8 +1,8 @@
 var App = React.createClass({
   render : function () {
     return <div>
-      <Menu/>
-      <Purchases />
+      <Menu name={this.props.name}/>
+      <Purchases/>
     </div>
   }
 });
