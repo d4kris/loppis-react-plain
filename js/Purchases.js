@@ -24,7 +24,26 @@ var Purchases = React.createClass({
   displayName: "Purchases",
 
   getInitialState: function () {
-    return { list: [{ seller: 4, price: 15 }, { seller: 7, price: 10 }] };
+    return {
+      list: []
+    };
+  },
+
+  add: function (e) {
+    e.preventDefault();
+    console.log('add');
+    var newItem = {
+      key: +new Date(),
+      seller: this.refs.seller.value,
+      price: this.refs.price.value
+    };
+    var items = [newItem].concat(this.state.list);
+    this.setState({ list: items });
+    // clear form
+    this.refs.seller.value = '';
+    this.refs.price.value = '';
+    // focus
+    this.refs.seller.focus();
   },
 
   render: function () {
@@ -40,26 +59,26 @@ var Purchases = React.createClass({
           React.createElement(
             "div",
             { className: "col-xs-5 col-md-2" },
-            React.createElement("input", { type: "number", name: "seller", id: "seller", placeholder: "Sälj nr", className: "form-control" })
+            React.createElement("input", { type: "number", name: "seller", ref: "seller", placeholder: "Sälj nr", className: "form-control" })
           ),
           React.createElement(
             "div",
             { className: "col-xs-5 col-md-3" },
-            React.createElement("input", { type: "number", step: "5", placeholder: "Pris", className: "form-control" })
+            React.createElement("input", { type: "number", ref: "price", step: "5", placeholder: "Pris", className: "form-control" })
           ),
           React.createElement(
             "div",
             { className: "col-xs-2 col-md-1" },
             React.createElement(
               "button",
-              { className: "btn btn-success" },
+              { onClick: this.add, className: "btn btn-success" },
               React.createElement("i", { className: "glyphicon glyphicon-plus" })
             )
           )
         )
       ),
-      this.state.list.map(function (p, ix) {
-        return React.createElement(Purchase, { key: ix, seller: p.seller, price: p.price });
+      this.state.list.map(function (p) {
+        return React.createElement(Purchase, { key: p.key, seller: p.seller, price: p.price });
       })
     );
   }

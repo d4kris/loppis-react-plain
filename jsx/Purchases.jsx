@@ -15,10 +15,26 @@ var Purchase = React.createClass({
 
 var Purchases = React.createClass({
   getInitialState: function () {
-    return {list : [
-      { seller: 4, price: 15 },
-      { seller: 7, price: 10 }
-    ]};
+    return {
+      list: []
+    };
+  },
+
+  add: function (e) {
+    e.preventDefault();
+    console.log('add');
+    var newItem = {
+      key: +new Date(),
+      seller : this.refs.seller.value,
+      price: this.refs.price.value
+    };
+    var items = [newItem].concat(this.state.list);
+    this.setState({ list : items });
+    // clear form
+    this.refs.seller.value = '';
+    this.refs.price.value = '';
+    // focus
+    this.refs.seller.focus();
   },
 
   render : function () {
@@ -26,18 +42,20 @@ var Purchases = React.createClass({
       <div className="add row">
         <form role="form" className="">
           <div className="col-xs-5 col-md-2">
-            <input type="number" name="seller" id="seller" placeholder="Sälj nr" className="form-control"/>
+            <input type="number" name="seller" ref="seller" placeholder="Sälj nr" className="form-control"/>
           </div>
           <div className="col-xs-5 col-md-3">
-            <input type="number" step="5" placeholder="Pris" className="form-control"/>
+            <input type="number" ref="price" step="5" placeholder="Pris" className="form-control"/>
           </div>
           <div className="col-xs-2 col-md-1">
-            <button className="btn btn-success"><i className="glyphicon glyphicon-plus"></i></button>
+            <button onClick={this.add} className="btn btn-success">
+              <i className="glyphicon glyphicon-plus"></i>
+            </button>
           </div>
         </form>
       </div>
-      {this.state.list.map(function (p, ix) {
-        return <Purchase key={ix} seller={p.seller} price={p.price} />;
+      {this.state.list.map(function (p) {
+        return <Purchase key={p.key} seller={p.seller} price={p.price} />;
       })}
     </div>;
   }

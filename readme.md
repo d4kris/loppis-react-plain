@@ -2,3 +2,7 @@
 2. webpack (require?)
 3. redux
 4. hot reload
+
+Q
+how to push to state list?
+how to get form values?
