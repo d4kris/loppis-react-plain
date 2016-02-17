@@ -13,12 +13,7 @@ var Menu = React.createClass({
           { className: "navbar-header" },
           React.createElement(
             "button",
-            { className: "navbar-btn btn btn-default pull-right" },
-            "Nytt köp"
-          ),
-          React.createElement(
-            "button",
-            { type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#navbar-collapse" },
+            { type: "button", className: "navbar-btn btn btn-default navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#navbar-collapse" },
             React.createElement(
               "span",
               { className: "sr-only" },
@@ -31,7 +26,12 @@ var Menu = React.createClass({
           React.createElement(
             "a",
             { className: "navbar-brand", href: "#" },
-            "Marknad"
+            this.props.name
+          ),
+          React.createElement(
+            "button",
+            { className: "navbar-btn btn btn-default pull-right" },
+            "Nytt köp"
           )
         ),
         React.createElement(
@@ -42,34 +42,20 @@ var Menu = React.createClass({
             { className: "nav navbar-nav navbar-right" },
             React.createElement(
               "li",
-              { className: "dropdown" },
+              null,
               React.createElement(
                 "a",
-                { href: "#", className: "dropdown-toggle", "data-toggle": "dropdown" },
-                "Meny ",
-                React.createElement("span", { className: "caret" })
-              ),
+                { href: "#" },
+                "Synka köp"
+              )
+            ),
+            React.createElement(
+              "li",
+              null,
               React.createElement(
-                "ul",
-                { className: "dropdown-menu", role: "menu" },
-                React.createElement(
-                  "li",
-                  null,
-                  React.createElement(
-                    "a",
-                    { href: "#" },
-                    "Synka köp"
-                  )
-                ),
-                React.createElement(
-                  "li",
-                  null,
-                  React.createElement(
-                    "a",
-                    { href: "#" },
-                    "Räkna ihop"
-                  )
-                )
+                "a",
+                { href: "#" },
+                "Räkna ihop"
               )
             )
           )

@@ -1,3 +1,6 @@
 .item div {
     padding: 5px 20px;
 }
+.navbar button.pull-right {
+    margin-right: 10px;
+}
