@@ -1,5 +1,12 @@
 var Menu = React.createClass({
 
+  newPurchase: function () {
+    if (!confirm("Spara undan detta köp och börja på en ny?")) {
+      return;
+    }
+    this.props.startNew();
+  },
+
   render: function () {
     return <nav className="navbar navbar-default" role="navigation">
       <div className="container-fluid">
@@ -12,7 +19,7 @@ var Menu = React.createClass({
             <span className="icon-bar"></span>
           </button>
           <a className="navbar-brand" href="#">{this.props.name}</a>
-          <button className="navbar-btn btn btn-default pull-right">Nytt köp</button>
+          <button onClick={this.newPurchase} className="navbar-btn btn btn-default pull-right">Nytt köp</button>
         </div>
 
         {/*  Collect the nav links, forms, and other content for toggling */}

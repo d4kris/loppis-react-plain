@@ -66,25 +66,16 @@ var NewItem = React.createClass({
 });
 
 var Purchases = React.createClass({
-  getInitialState: function () {
-    return {
-      list: this.props.list,
-      total: this.props.total
-    };
-  },
 
   add: function (newItem) {
-    console.log('add to list');
-    var items = [newItem].concat(this.state.list);
-    var total = this.state.total + newItem.price;
-    this.setState({ list : items, total: total });
+    this.props.add(newItem);
   },
 
   render : function () {
     return <div className="container">
       <NewItem onAdd={this.add}/>
-      <Purchase seller="Total" price={this.state.total} className="totals"/>
-      {this.state.list.map(function (p) {
+      <Purchase seller="Total" price={this.props.total} className="totals"/>
+      {this.props.list.map(function (p) {
         return <Purchase key={p.key} seller={p.seller} price={p.price} />;
       })}
     </div>;

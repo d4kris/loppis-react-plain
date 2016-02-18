@@ -89,18 +89,8 @@ var NewItem = React.createClass({
 var Purchases = React.createClass({
   displayName: "Purchases",
 
-  getInitialState: function () {
-    return {
-      list: this.props.list,
-      total: this.props.total
-    };
-  },
-
   add: function (newItem) {
-    console.log('add to list');
-    var items = [newItem].concat(this.state.list);
-    var total = this.state.total + newItem.price;
-    this.setState({ list: items, total: total });
+    this.props.add(newItem);
   },
 
   render: function () {
@@ -108,8 +98,8 @@ var Purchases = React.createClass({
       "div",
       { className: "container" },
       React.createElement(NewItem, { onAdd: this.add }),
-      React.createElement(Purchase, { seller: "Total", price: this.state.total, className: "totals" }),
-      this.state.list.map(function (p) {
+      React.createElement(Purchase, { seller: "Total", price: this.props.total, className: "totals" }),
+      this.props.list.map(function (p) {
         return React.createElement(Purchase, { key: p.key, seller: p.seller, price: p.price });
       })
     );

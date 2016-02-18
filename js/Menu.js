@@ -1,6 +1,13 @@
 var Menu = React.createClass({
   displayName: "Menu",
 
+  newPurchase: function () {
+    if (!confirm("Spara undan detta köp och börja på en ny?")) {
+      return;
+    }
+    this.props.startNew();
+  },
+
   render: function () {
     return React.createElement(
       "nav",
@@ -30,7 +37,7 @@ var Menu = React.createClass({
           ),
           React.createElement(
             "button",
-            { className: "navbar-btn btn btn-default pull-right" },
+            { onClick: this.newPurchase, className: "navbar-btn btn btn-default pull-right" },
             "Nytt köp"
           )
         ),
