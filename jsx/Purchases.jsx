@@ -14,13 +14,21 @@ var Purchase = React.createClass({
 });
 
 var NewItem = React.createClass({
+  componentDidMount: function () {
+    this.refs.seller.focus();
+  },
+
   add: function (e) {
     e.preventDefault();
     console.log('add NewItem');
+    var value = Number.parseInt(this.refs.price.value);
+    if (!value) {
+      return false;
+    }
     var newItem = {
       key: +new Date(),
       seller : this.refs.seller.value,
-      price: this.refs.price.value
+      price: value
     };
     this.props.onAdd(newItem);
     // clear form
@@ -52,19 +60,22 @@ var NewItem = React.createClass({
 var Purchases = React.createClass({
   getInitialState: function () {
     return {
-      list: this.props.list
+      list: this.props.list,
+      total: this.props.total
     };
   },
 
   add: function (newItem) {
     console.log('add to list');
     var items = [newItem].concat(this.state.list);
-    this.setState({ list : items });
+    var total = this.state.total + newItem.price;
+    this.setState({ list : items, total: total });
   },
 
   render : function () {
     return <div className="container">
       <NewItem onAdd={this.add}/>
+      <Purchase seller="Total" price={this.state.total}/>
       {this.state.list.map(function (p) {
         return <Purchase key={p.key} seller={p.seller} price={p.price} />;
       })}

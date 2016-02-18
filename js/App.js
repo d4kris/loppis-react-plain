@@ -3,7 +3,8 @@ var App = React.createClass({
 
   getInitialState: function () {
     return {
-      currentList: []
+      currentList: [],
+      currentTotal: 0
     };
   },
 
@@ -12,7 +13,7 @@ var App = React.createClass({
       "div",
       null,
       React.createElement(Menu, { name: this.props.name }),
-      React.createElement(Purchases, { list: this.state.currentList })
+      React.createElement(Purchases, { list: this.state.currentList, total: this.state.currentTotal })
     );
   }
 });
