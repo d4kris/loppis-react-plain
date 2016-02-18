@@ -1,10 +1,18 @@
 var Purchase = React.createClass({
   displayName: "Purchase",
 
+  getClass: function () {
+    var c = "item row ";
+    if (this.props.className) {
+      c += this.props.className;
+    }
+    return c;
+  },
+
   render: function () {
     return React.createElement(
       "div",
-      { className: "item row" },
+      { className: this.getClass() },
       React.createElement(
         "div",
         { className: "col-xs-5 col-md-2" },
@@ -100,7 +108,7 @@ var Purchases = React.createClass({
       "div",
       { className: "container" },
       React.createElement(NewItem, { onAdd: this.add }),
-      React.createElement(Purchase, { seller: "Total", price: this.state.total }),
+      React.createElement(Purchase, { seller: "Total", price: this.state.total, className: "totals" }),
       this.state.list.map(function (p) {
         return React.createElement(Purchase, { key: p.key, seller: p.seller, price: p.price });
       })

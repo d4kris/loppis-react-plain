@@ -1,6 +1,14 @@
 var Purchase = React.createClass({
+  getClass: function () {
+    var c = "item row ";
+    if (this.props.className) {
+      c += this.props.className;
+    }
+    return c;
+  },
+
   render : function () {
-    return <div className="item row">
+    return <div className={this.getClass()}>
         <div className="col-xs-5 col-md-2">
           {this.props.seller}
         </div>
@@ -75,7 +83,7 @@ var Purchases = React.createClass({
   render : function () {
     return <div className="container">
       <NewItem onAdd={this.add}/>
-      <Purchase seller="Total" price={this.state.total}/>
+      <Purchase seller="Total" price={this.state.total} className="totals"/>
       {this.state.list.map(function (p) {
         return <Purchase key={p.key} seller={p.seller} price={p.price} />;
       })}
