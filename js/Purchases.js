@@ -75,7 +75,7 @@ var Purchases = React.createClass({
 
   getInitialState: function () {
     return {
-      list: []
+      list: this.props.list
     };
   },
 

@@ -1,8 +1,14 @@
 var App = React.createClass({
+  getInitialState: function () {
+    return {
+      currentList: []
+    };
+  },
+
   render : function () {
     return <div>
       <Menu name={this.props.name}/>
-      <Purchases/>
+      <Purchases list={this.state.currentList}/>
     </div>
   }
 });
