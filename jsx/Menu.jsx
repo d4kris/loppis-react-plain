@@ -28,7 +28,7 @@ var Menu = React.createClass({
           <ul className="nav navbar-nav navbar-right">
             {/* <li><button className="navbar-btn btn btn-default">Nytt köp</button></li>*/}
             <li><a href="#">Synka köp</a></li>
-            <li><a href="#">Räkna ihop</a></li>
+            <li><a href="#" onClick={this.props.sellerSummary}>Räkna ihop</a></li>
           </ul>
         </div>
       </div>

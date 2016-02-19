@@ -61,7 +61,7 @@ var Menu = React.createClass({
               null,
               React.createElement(
                 "a",
-                { href: "#" },
+                { href: "#", onClick: this.props.sellerSummary },
                 "Räkna ihop"
               )
             )
